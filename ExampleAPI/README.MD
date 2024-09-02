@@ -14,3 +14,12 @@ En ellas creamos su relación con las claves primarias y foráneas como se espec
 
 ## 7. Enviamos las tablas a la DB
 <code> dotnet ef database update </code>
+
+
+## Nugets necesarios:
+
+- DotnetEnv: Variables de DB
+- Entity
+- Entity.Tools: Migraciones
+- Entity.Design: Diseñar la base de datos
+- Pomelo MySQL: Conexión con MySQL como motor de la DB
