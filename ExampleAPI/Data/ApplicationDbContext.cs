@@ -9,7 +9,7 @@ namespace ExampleAPI.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Propietario> Propietarios{get;set;}
+        public DbSet<Propietario> Propietarios{get;set;} // tablas a crear en la DB
         public DbSet<Vehiculo> Vehiculos{get;set;}
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
