@@ -36,7 +36,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseWelcomePage(); // Página de bienvenida 
+// app.UseWelcomePage(); // Página de bienvenida 
 app.UseAuthorization();
 
 app.MapControllers();
