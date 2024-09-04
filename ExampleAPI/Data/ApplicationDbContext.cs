@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ExampleAPI.Models;
+using ExampleAPI.Seeders;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExampleAPI.Data
@@ -15,6 +16,7 @@ namespace ExampleAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var data = DatabaseSeeder.PropietariosSeeders(100); // Ejecutamos el método que ingresa fake data.
 
             modelBuilder.Entity<Propietario>(propietario =>
             {
@@ -28,6 +30,7 @@ namespace ExampleAPI.Data
                 propietario.Property(p => p.Telefono).HasMaxLength(25).IsRequired();
                 propietario.Property(p => p.Direccion).HasMaxLength(255).IsRequired();
                 propietario.Ignore(p => p.ColorDePelo);
+                propietario.HasData(data);
             });
 
             modelBuilder.Entity<Vehiculo>(vehiculo =>
