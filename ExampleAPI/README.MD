@@ -16,10 +16,14 @@ En ellas creamos su relación con las claves primarias y foráneas como se espec
 <code> dotnet ef database update </code>
 
 
-## Nugets necesarios:
+## NuGets necesarios:
 
 - DotnetEnv: Variables de DB
 - Entity
 - Entity.Tools: Migraciones
 - Entity.Design: Diseñar la base de datos
 - Pomelo MySQL: Conexión con MySQL como motor de la DB
+
+## FluentAP:
+
+No es un NuGet, por lo que no es necesario instalarlo. Permite añadir validaciones directamente en el AppDbContext para la DB similar a las Data Annotations, para no hacerlo en los modelos. El método se llama OnModelCreating, heredado del DbContext.

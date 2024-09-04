@@ -3,7 +3,7 @@ using ExampleAPI.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
-// Conection with DB
+// Conexión con la base de datos
 
 Env.Load();
 
@@ -15,19 +15,19 @@ var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
 var conectionDB = $"server={dbHost};port={dbPort};database={dbDatabaseName};uid={dbUser};password={dbPassword}";
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseMySql(conectionDB, ServerVersion.Parse("8.0.20-mysql")));
 
-// Add services to the container.
+// Servicios.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Canal de peticiones HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -36,8 +36,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseWelcomePage(); // Welcome page, doesn't show the error message, so we know the API is working
-
+app.UseWelcomePage(); // Página de bienvenida 
 app.UseAuthorization();
 
 app.MapControllers();
